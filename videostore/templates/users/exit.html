@@ -1,0 +1,12 @@
+{% extends 'laout.html' %}
+
+{% block title %}
+    Вы успешно вышли из аккаунта
+{% endblock %}
+
+{% block main %}
+    <div class="container container-main">
+        <h1>Вы успешно вышли из аккаунта</h1>
+        <a href="{% url 'login' %}">Войти в аккаунт</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'laout.html' %}
+
+{% block main %}
+    <div class="container container-main">
+        {% if user.is_authenticated == False or user.profile.acount_type == 'free' %}
+            <h1>Купите подписку</h1>
+            <p>Вы можете купить подписку</p>
+            <button class="btn btn-primary">Купить подписку(15$)</button>
+        {% else %}
+            <h3>У Вас максимальная подписка</h3>
+        {% endif %}
+    </div>
+{% endblock %}

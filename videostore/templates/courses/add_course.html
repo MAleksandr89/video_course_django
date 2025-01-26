@@ -1,0 +1,16 @@
+{% extends 'laout.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block main %}
+    <div class="container container-main">
+        <h1>{{ title }}</h1>
+        <form style="width: 475px;" method="post" class="form-register auth" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn btn-primary">Добавить курс</button>
+        </form>
+    </div>
+{% endblock %}

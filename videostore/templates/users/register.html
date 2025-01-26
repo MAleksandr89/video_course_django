@@ -1,0 +1,18 @@
+{% extends 'laout.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block main %}
+    <div class="container container-main">
+        <h1>{{ title }}</h1>
+        <form style="width: 440px; margin: 0;" action="" method="post" class="form-register container">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+            <hr>
+            <p>Вы уже зарегистрированы? <a href="{% url 'login' %}">Авторизоваться</a></p>
+        </form>
+    </div>
+{% endblock %}

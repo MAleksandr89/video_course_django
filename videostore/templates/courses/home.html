@@ -1,0 +1,24 @@
+{% extends 'laout.html' %}
+
+{% block main %}
+    <div class="container preview-block">
+        <img style="width: 200px;" src="../../pictures/preview.png" alt="">
+        <div>
+            <h2>Хотите изучать программирование ?</h2>
+            <p>Здесь вы можете найти курсы по программированию</p>
+        </div>
+    </div>
+    <div class="courses container">
+        {% for course in courses %}
+            <div class="course">
+                {% if course.image %}
+                    <img class="course-image" src="{{ course.image.url }}" alt="{{ course.title }}">
+                {% else %}
+                    <img class="course-image" src="pictures/default.png" alt="{{ course.title }}">
+                {% endif %}
+                <h2>{{ course.title }}</h2>
+                <a class="course-url" href="{% url 'course_detail' slug=course.slug %}">Подробнее</a>
+            </div>
+        {% endfor%}
+    </div>
+{% endblock %}

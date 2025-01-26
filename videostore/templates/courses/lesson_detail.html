@@ -1,0 +1,41 @@
+{% extends 'laout.html' %}
+
+{% block main %}
+    <div class="courses-detail container">
+            <div style="height: 260px;" class="course">
+                {% if course.image %}
+                    <img class="course-image" src="{{ course.image.url }}" alt="{{ course.title }}">
+                {% else %}
+                    <img class="course-image" src="pictures/default.png" alt="{{ course.title }}">
+                {% endif %}
+                <h2>{{ course.title }}</h2>
+            </div>
+            <div class="aside">
+                <h1 style="font-size: 30px;">Видео урок - {{ lesson.title }}</h1>
+                <p>{{ lesson.description }}</p>
+                {% if course.is_free == True or user.profile.acount_type == 'full' %}
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/kGIRKHdYViw?si=sLkfz8rzTN1dvVMZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                {% endif %}
+            </div>
+    </div>
+    {% if user.is_authenticated %}
+        <div class="container mt-5 container-main">
+            <h1>Комментарии</h1>
+            <form style="width: 100%; margin-bottom: 60px;" method="post" class="form-register auth" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form }}
+                <button style="width: 120px;" type="submit" class="btn btn-primary">Добавить</button>
+            </form>
+            <div>
+                <h1>Вывод всех комментариев</h1>
+                {% for comment in comments %}
+                    <div class="comments">
+                        <h5>Автор: {{ comment.author }}</h5>
+                        <h5>Текс комментария:</h5>
+                        <p>{{ comment }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

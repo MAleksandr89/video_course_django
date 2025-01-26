@@ -1,0 +1,142 @@
+body {
+    background-color: #838383;
+}
+
+.container-main {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.auth {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+
+    & input {
+        margin-top: 10px;
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 2px solid #000;
+        border-radius: 5px;
+    }
+
+    & textarea {
+        margin-top: 10px;
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 2px solid #000;
+        border-radius: 5px;
+    }
+}
+
+.main-btn {
+    border: 2px solid #000;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: #000;
+        color: #fff;
+        transition: all 0.4s ease-in;
+    }
+}
+
+.form-register ul.errorlist {
+    color: #9b0707;
+    font-weight: bold;
+    list-style: none;
+}
+
+.form-register {
+
+    & input {
+        margin-top: 10px;
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 2px solid #000;
+        border-radius: 5px;
+    }
+}
+
+.form-register .helptext {color: #b7b7b7;}
+
+.container-auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.preview-block {
+    background-color: #f5bd25;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 45px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.header-items {
+    color: #000;
+
+    &:hover {
+        color: #adacac;
+    }
+}
+
+.courses {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.courses-detail {
+    display: grid;
+    grid-template-columns: 352px 70%;
+    gap: 30px;
+}
+
+.course {
+    padding: 15px;
+    background-color: #343434;
+    border-radius: 10px;
+    & h2 {
+        font-size: 18px;
+        color: #fff;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+}
+
+.course-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.course-url {
+    padding: 6px 10px;
+    text-decoration: none;
+    background-color: #fff;
+    border-radius: 5px;
+    color: #000;
+
+    &:hover {
+        background-color: #adacac;
+        color: #fff;
+        transition: all 0.5s ease;
+    }
+}
+
+.comments {
+    background-color: #343434;
+    padding: 15px;
+    color: #fff;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}

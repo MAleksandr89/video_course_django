@@ -1,0 +1,32 @@
+{% extends 'laout.html' %}
+
+{% block main %}
+    <div class="courses-detail container">
+            <div class="course">
+                {% if course.image %}
+                    <img class="course-image" src="{{ course.image.url }}" alt="{{ course.title }}">
+                {% else %}
+                    <img class="course-image" src="pictures/default.png" alt="{{ course.title }}">
+                {% endif %}
+                <h2>{{ course.title }}</h2>
+            </div>
+            <div class="aside">
+                <h1>Описание курса</h1>
+                <p>Курс по изучению</p>
+                {% if course.is_free == False and user.is_authenticated == False %}
+                    <a href="{% url 'register' %}">Вам необходимо пройти регистрацию</a>
+                {% else %}
+                    {% if course.is_free == True or user.profile.acount_type == 'full'%}
+                        <ul>
+                            {% for lesson in lessons %}
+                                <li><a href="{{ lesson.get_absolute_url }}">{{ lesson.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <a href="{% url 'tarif' %}"><p>Вам необходимо преобрести подписку</p></a>
+                    {% endif %}
+
+                {% endif%}
+            </div>
+    </div>
+{% endblock %}
